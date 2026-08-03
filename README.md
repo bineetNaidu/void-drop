@@ -17,9 +17,9 @@ An outer-space-themed physics drop game where chat inputs spawn emote that desce
 * [x] Design and integrate visual assets for the bottom 50% curved Mars planet surface
 
 * **Phase 3: Chat Input & Command Parser**
-* [ ] Create the interactive chat sidebar component with a scrollable message history feed
-* [ ] Build an input form simulating chat submissions for local testing
-* [ ] Implement a command parsing utility to detect the `!drop` keyword and extract user-submitted emojis
+* [x] Create the interactive chat sidebar component with a scrollable message history feed
+* [x] Build an input form simulating chat submissions for local testing
+* [x] Implement a command parsing utility to detect the `!drop` keyword and extract user-submitted emojis
 * [ ] Establish an event-driven queue to pipe verified emoji commands from the chat panel over to the game engine
 
 * **Phase 4: Physics Engine Integration (Matter.js)**

@@ -143,9 +143,32 @@ body {
   color: var(--text-main);
   outline: none;
   font-size: 0.85rem;
+  transition: all ease-in-out 200ms;
+}
+
+.chat-input-area input.chat-input-error,
+.chat-input-area input.chat-input-error:focus {
+  border: 1px solid red;
+  color: red;
+  animation: giggle 0.3s ease-in-out;
 }
 
 .chat-input-area input:focus {
   border-color: var(--accent-cyan);
   box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+@keyframes giggle {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-6px);
+  }
+  40%,
+  80% {
+    transform: translateX(6px);
+  }
 }
