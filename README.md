@@ -6,8 +6,8 @@ An outer-space-themed physics drop game where chat inputs spawn emote that desce
 
 * **Phase 1: Project Setup & Environment**
 * [x] Initialize project repository and version control
-* [ ] Install required dependencies (such as Matter.js for physics simulation)
-* [ ] Configure project folder structure (components, physics engine logic, assets, styles)
+* [x] Install required dependencies (such as Matter.js for physics simulation)
+* [x] Configure project folder structure (components, physics engine logic, assets, styles)
 
 * **Phase 2: UI Layout & Theme Design**
 * [x] Build the main application shell with a responsive 70/30 split-screen layout
@@ -23,16 +23,15 @@ An outer-space-themed physics drop game where chat inputs spawn emote that desce
 * [ ] Establish an event-driven queue to pipe verified emoji commands from the chat panel over to the game engine
 
 * **Phase 4: Physics Engine Integration (Matter.js)**
-* [ ] Initialize the 2D physics world, renderer, and runner inside the 70% canvas zone
-* [ ] Configure appropriate world gravity parameters simulating space descent towards Mars
-* [ ] Build static boundary walls to keep physics bodies contained within the play area
-* [ ] Position the curved bottom barrier representing the Mars surface boundary
+* [x] Initialize the 2D physics world, renderer, and runner inside the 70% canvas zone
+* [x] Configure appropriate world gravity parameters simulating space descent towards Mars
+* [x] Build static boundary walls to keep physics bodies contained within the play area
+* [x] Position the curved bottom barrier representing the Mars surface boundary
 
 * **Phase 5: Gameplay Mechanics & Spawning**
-* [ ] Write a spawner function that translates incoming chat emojis into physical falling bodies at the top of the canvas
-* [ ] Place custom obstacles (such as rotating space debris and neon bumpers) across the middle drop zone
-* [ ] Implement collision detection logic to handle interactions between falling items and obstacles
-* [ ] Define target landing zones on the Mars surface to register successful descents and calculate scores
+* [x] Write a spawner function that translates incoming chat emojis into physical falling bodies at the top of the canvas
+* [x] Implement collision detection logic to handle interactions between falling items and obstacles
+* [x] Define target landing zones on the Mars surface to register successful descents and calculate scores
 
 * **Phase 6: Polish, Testing, & Optimization**
 * [ ] Add dynamic UI feedback or score multipliers when emojis successfully land on the Mars Colony Base
