@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <!-- Mars Atmosphere Glow -->
+    <radialGradient id="atmosphereGlow" cx="50%" cy="100%" r="60%">
+      <stop offset="70%" stop-color="#ff4500" stop-opacity="0" />
+      <stop offset="95%" stop-color="#ff6b4a" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.6" />
+    </radialGradient>
+
+    <!-- Mars Surface Sphere Shading -->
+    <radialGradient id="marsSurface" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ff7b54" />
+      <stop offset="45%" stop-color="#d9381e" />
+      <stop offset="85%" stop-color="#8b0000" />
+      <stop offset="100%" stop-color="#3a0000" />
+    </radialGradient>
+
+    <!-- Dark Crater Fill -->
+    <radialGradient id="craterShading" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#5c0606" stop-opacity="0.9" />
+      <stop offset="80%" stop-color="#2b0000" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#b83b1d" stop-opacity="0.4" />
+    </radialGradient>
+
+    <!-- Clip path to keep surface details constrained to the dome -->
+    <clipPath id="marsClip">
+      <ellipse cx="400" cy="400" rx="400" ry="280" />
+    </clipPath>
+  </defs>
+
+  <!-- Outer Atmosphere Layer -->
+  <ellipse cx="400" cy="400" rx="412" ry="290" fill="url(#atmosphereGlow)" />
+
+  <!-- Main Mars Base Body -->
+  <ellipse cx="400" cy="400" rx="400" ry="280" fill="url(#marsSurface)" />
+
+  <!-- Surface Textures & Craters (Clipped to Planet Edge) -->
+  <g clip-path="url(#marsClip)">
+    <!-- Dark Surface Regions / Terrain -->
+    <path d="M 120 220 Q 250 180, 380 230 T 680 200 Q 750 250, 800 300 L 800 400 L 0 400 L 0 280 Z" fill="#4a0505" opacity="0.35" />
+    <path d="M 50 300 Q 200 240, 450 290 T 750 280 L 800 400 L 0 400 Z" fill="#2d0202" opacity="0.4" />
+
+    <!-- Craters -->
+    <!-- Large Center Crater -->
+    <ellipse cx="380" cy="220" rx="45" ry="18" fill="url(#craterShading)" stroke="#ff7b54" stroke-width="1.5" opacity="0.8" />
+    
+    <!-- Left Craters -->
+    <ellipse cx="180" cy="200" rx="30" ry="12" fill="url(#craterShading)" stroke="#ff7b54" stroke-width="1" opacity="0.7" />
+    <ellipse cx="260" cy="260" rx="20" ry="8" fill="url(#craterShading)" stroke="#ff7b54" stroke-width="1" opacity="0.6" />
+
+    <!-- Right Craters -->
+    <ellipse cx="580" cy="210" rx="38" ry="15" fill="url(#craterShading)" stroke="#ff7b54" stroke-width="1.2" opacity="0.75" />
+    <ellipse cx="670" cy="250" rx="22" ry="9" fill="url(#craterShading)" stroke="#ff7b54" stroke-width="1" opacity="0.6" />
+    
+    <!-- Small Scatter Craters -->
+    <ellipse cx="480" cy="180" rx="12" ry="5" fill="url(#craterShading)" stroke="#ff7b54" stroke-width="0.8" opacity="0.5" />
+    <ellipse cx="310" cy="170" rx="15" ry="6" fill="url(#craterShading)" stroke="#ff7b54" stroke-width="0.8" opacity="0.5" />
+  </g>
+</svg>

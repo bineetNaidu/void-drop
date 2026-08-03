@@ -10,11 +10,11 @@ An outer-space-themed physics drop game where chat inputs spawn emote that desce
 * [ ] Configure project folder structure (components, physics engine logic, assets, styles)
 
 * **Phase 2: UI Layout & Theme Design**
-* [ ] Build the main application shell with a responsive 70/30 split-screen layout
-* [ ] Style the 70% left side as an outer space canvas container with a starry background
-* [ ] Style the 30% right side as a futuristic sci-fi live chat sidebar
-* [ ] Implement top dashboard status bars for metrics like active drops and score counters
-* [ ] Design and integrate visual assets for the bottom 50% curved Mars planet surface
+* [x] Build the main application shell with a responsive 70/30 split-screen layout
+* [x] Style the 70% left side as an outer space canvas container with a starry background
+* [x] Style the 30% right side as a futuristic sci-fi live chat sidebar
+* [x] Implement top dashboard status bars for metrics like active drops and score counters
+* [x] Design and integrate visual assets for the bottom 50% curved Mars planet surface
 
 * **Phase 3: Chat Input & Command Parser**
 * [ ] Create the interactive chat sidebar component with a scrollable message history feed

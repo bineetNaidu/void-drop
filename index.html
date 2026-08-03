@@ -3,12 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>void-drop</title>
+    <title>VoidDrop</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app" class="app-container">
+      <!-- 70% Drop World Section -->
+      <div class="drop-world">
+        <div class="canvas-header">
+          <span>VOID DROP // COSMIC DESCENT</span>
+          <span id="active-drops">DROPS: 0</span>
+        </div>
+        <div id="canvas-container">
+          <img id="mars" src="/src/assets/mars.svg" alt="Planet Mar" />
+        </div>
+      </div>
+
+      <!-- 30% Chat Sidebar Section -->
+      <div class="chat-sidebar">
+        <div class="chat-header">LIVE CHAT FEED</div>
+        <div id="chat-messages" class="chat-messages">
+          <div class="chat-message">[🤖]: Type !drop 🚀 to test!</div>
+        </div>
+        <form id="chat-form" class="chat-input-area">
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Type !drop [emoji]..."
+            autocomplete="off"
+          />
+        </form>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
