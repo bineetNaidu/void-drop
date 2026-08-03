@@ -1,9 +1,12 @@
 import Matter from 'matter-js';
 import { Chat } from './chat';
+import { EMOTE_REGISTRY } from './emotes';
 
 console.log('Hello VoidDrop 👋');
 
 const chatManager = new Chat();
+const EMOTES: string[] = [];
+const EMOTES_NODE: HTMLImageElement[] = [];
 
 const { Engine, Render, Runner, Bodies, Composite, Events, Body } = Matter;
 
@@ -21,8 +24,42 @@ const canvasContainer = document.querySelector(
 const activeDropsSpan = document.querySelector(
   '#active-drops',
 ) as HTMLSpanElement;
+const emotesContainer = document.querySelector(
+  'div#emotes-container',
+) as HTMLDivElement;
 
 let activeDropCount = 0;
+
+for (const name in EMOTE_REGISTRY) {
+  const emotesImgSrc = Object(EMOTE_REGISTRY)[name];
+
+  EMOTES.push(name);
+
+  const emoteImageNode = document.createElement('img');
+  emoteImageNode.src = emotesImgSrc;
+  emoteImageNode.id = name;
+  emoteImageNode.alt = `${name} emote`;
+  emoteImageNode.classList.add('emote-icon');
+
+  emoteImageNode.addEventListener('click', () => {
+    if (formInput.value.startsWith('!drop')) {
+      const textNodes = formInput.value.split(' ');
+
+      textNodes.push(`:${name}:`);
+
+      formInput.value = textNodes.join(' ');
+
+      // if emotes container has the show class then remove it!
+      if (emotesContainer.classList.contains('emotes-container-show')) {
+        emotesContainer.classList.remove('emotes-container-show');
+      }
+    }
+  });
+
+  EMOTES_NODE.push(emoteImageNode); // you can do somethign with this nodes later probably
+
+  emotesContainer.appendChild(emoteImageNode);
+}
 
 function updateDropCount(delta: number) {
   activeDropCount += delta;
@@ -216,10 +253,15 @@ form.addEventListener('submit', (e) => {
     formInput.classList.add('chat-input-error');
 
     setTimeout(() => {
+      formInput.value = '';
       formInput.classList.remove('chat-input-error');
     }, 1200);
 
     return;
+  }
+
+  if (emotesContainer.classList.contains('emotes-container-show')) {
+    emotesContainer.classList.remove('emotes-container-show');
   }
 
   const result = chatManager.addChat(text);
@@ -236,6 +278,16 @@ form.addEventListener('submit', (e) => {
   spawnEmojiDrop(result.emoji);
 
   formInput.value = '';
+});
+
+formInput.addEventListener('input', () => {
+  const value = formInput.value.trim();
+
+  if (value.startsWith('!drop')) {
+    emotesContainer.classList.add('emotes-container-show');
+  } else {
+    emotesContainer.classList.remove('emotes-container-show');
+  }
 });
 
 // 7. Start Engine and Renderer

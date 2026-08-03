@@ -97,6 +97,7 @@ body {
   border-left: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .chat-header {
@@ -156,6 +157,75 @@ body {
 .chat-input-area input:focus {
   border-color: var(--accent-cyan);
   box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+#emotes-container.emotes-container-show {
+  display: grid;
+}
+
+#emotes-container {
+  display: none;
+  position: absolute;
+  bottom: 5rem;
+  left: 20px;
+  right: 20px;
+  border: 1px solid var(--border-input);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.35rem;
+
+  background-color: color-mix(in srgb, var(--accent-purple) 15%, #0f172a);
+  backdrop-filter: blur(8px);
+
+  gap: 0.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+
+  max-height: 10rem;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+#emotes-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+#emotes-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#emotes-container::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--accent-purple) 30%, transparent);
+  border-radius: 9999px;
+}
+
+#emotes-container::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-purple);
+}
+
+.emote-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed transparent;
+  border-radius: 0.35rem;
+  background: transparent;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.emote-icon:hover {
+  border: 1px dashed var(--accent-purple);
+  background-color: color-mix(in srgb, var(--accent-purple) 25%, transparent);
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 4px 12px
+    color-mix(in srgb, var(--accent-purple) 35%, transparent);
+}
+
+/* Click press feedback */
+.emote-icon:active {
+  transform: translateY(0) scale(0.95);
+  box-shadow: none;
 }
 
 @keyframes giggle {
