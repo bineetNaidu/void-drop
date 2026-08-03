@@ -1,7 +1,7 @@
 export interface ChatResult {
   id: string;
   text: string;
-  emoji: string;
+  emote: string;
 }
 
 export class Chat {
@@ -21,14 +21,14 @@ export class Chat {
   public parseEmoji(text: string): string {
     const parts = text.split(' ');
     // If user typed !drop 🚀, return the emoji; default to 🚀 if none provided
-    return parts.length > 1 && parts[1].trim() !== '' ? parts[1] : '🚀';
+    return parts.length > 1 && parts[1].trim() !== '' ? parts[1] : ':rocket:';
   }
 
   public addChat(text: string): ChatResult {
     return {
       id: `msg-${this.generateShortId(6)}`,
       text: text,
-      emoji: this.parseEmoji(text),
+      emote: this.parseEmoji(text),
     };
   }
 }

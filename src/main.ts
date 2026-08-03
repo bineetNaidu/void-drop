@@ -1,6 +1,7 @@
 import Matter from 'matter-js';
 import { Chat } from './chat';
 import { EMOTE_REGISTRY } from './emotes';
+import { cleanEmoteKey, emoteRegex } from './utils';
 
 console.log('Hello VoidDrop 👋');
 
@@ -52,6 +53,7 @@ for (const name in EMOTE_REGISTRY) {
       // if emotes container has the show class then remove it!
       if (emotesContainer.classList.contains('emotes-container-show')) {
         emotesContainer.classList.remove('emotes-container-show');
+        formInput.focus();
       }
     }
   });
@@ -270,12 +272,33 @@ form.addEventListener('submit', (e) => {
   const node = document.createElement('div');
   node.className = 'chat-message';
   node.id = result.id;
-  node.innerText = result.text;
+
+  // Split text into regular text fragments and :shortcodes:
+  const parts = result.text.split(emoteRegex);
+
+  parts.forEach((part) => {
+    const cleanKey = cleanEmoteKey(part);
+
+    // Check if the stripped key exists in the registry
+    if (cleanKey in EMOTE_REGISTRY) {
+      const img = document.createElement('img');
+      img.className = 'chat-emote-img';
+      img.src = EMOTE_REGISTRY[cleanKey as keyof typeof EMOTE_REGISTRY];
+      img.alt = cleanKey;
+      node.appendChild(img);
+    } else if (part.length > 0) {
+      // Standard text node for regular message parts
+      const textSpan = document.createElement('span');
+      textSpan.innerText = part;
+      node.appendChild(textSpan);
+    }
+  });
+
   chatMessagesContainer.appendChild(node);
   node.scrollIntoView({ behavior: 'smooth' });
 
   // Trigger Drop
-  spawnEmojiDrop(result.emoji);
+  spawnEmojiDrop(result.emote);
 
   formInput.value = '';
 });

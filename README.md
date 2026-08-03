@@ -17,7 +17,7 @@ An outer-space-themed physics drop game where chat inputs spawn emote that desce
 * [x] Design and integrate visual assets for the bottom 50% curved Mars planet surface
 * [x] Design emotes selectors
   * [ ] Show the selected emote on the input
-  * [ ] Show the selected emote on chat window after send
+  * [x] Show the selected emote on chat window after send
 
 * **Phase 3: Chat Input & Command Parser**
 * [x] Create the interactive chat sidebar component with a scrollable message history feed
@@ -35,6 +35,7 @@ An outer-space-themed physics drop game where chat inputs spawn emote that desce
 * [x] Write a spawner function that translates incoming chat emojis into physical falling bodies at the top of the canvas
 * [x] Implement collision detection logic to handle interactions between falling items and obstacles
 * [x] Define target landing zones on the Mars surface to register successful descents and calculate scores
+* [ ] spawn emotes instead of emoji
 
 * **Phase 6: Polish, Testing, & Optimization**
 * [ ] Add dynamic UI feedback or score multipliers when emojis successfully land on the Mars Colony Base
