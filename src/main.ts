@@ -110,9 +110,20 @@ Composite.add(engine.world, [leftWall, rightWall, zone1, marsBaseZone, zone2]);
 
 // 4. Function to Spawn Emojis with Infinite Bouncing Velocity
 function spawnEmojiDrop(emoji: string) {
-  const fromLeft = Math.random() > 0.5;
-  const spawnX = fromLeft ? 25 : width - 25;
-  const spawnY = 0 + Math.random() * 0.2;
+  // Randomise side (50/50 chance)
+  const fromLeft = Math.random() < 0.5;
+
+  // Randomise spawn X anywhere across top width (with margin)
+  const spawnX = 40 + Math.random() * (width - 80);
+
+  // Randomise Y near the top edge
+  const spawnY = 15 + Math.random() * 30;
+
+  // Wider horizontal speed variance (1.5 to 7.0) so bounce count differs per drop
+  const speedX = 1.5 + Math.random() * 5.5;
+
+  // Higher descent speed (0.6 to 1.4) so it reaches the bottom in fewer bounces
+  const speedY = 0.6 + Math.random() * 0.8;
 
   const emojiCanvas = document.createElement('canvas');
   emojiCanvas.classList.add('drop');
@@ -157,11 +168,9 @@ function spawnEmojiDrop(emoji: string) {
   img.onload = () => {
     Composite.add(engine.world, dropBody);
 
-    // --- SPEED CONTROL HERE ---
-    const velocityX = fromLeft ? 3.5 : -3.5; // Change 4.5 to adjust side-to-side speed (e.g., 2.0 for slower, 8.0 for faster)
-    const velocityY = 0.55; // Change 0.35 to adjust downward descent speed (e.g., 0.1 for floatier, 1.0 for faster drop)
-
-    Body.setVelocity(dropBody, { x: velocityX, y: velocityY });
+    // Set velocity using both randomised components
+    const velocityX = fromLeft ? speedX : -speedX;
+    Body.setVelocity(dropBody, { x: velocityX, y: speedY });
 
     updateDropCount(1);
   };
