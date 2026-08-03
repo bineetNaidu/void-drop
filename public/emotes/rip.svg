@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <path d="M16 56 L16 24 C16 12, 48 12, 48 24 L48 56 Z" fill="#64748b" />
+  <rect x="12" y="56" width="40" height="6" fill="#475569" />
+  <text x="32" y="38" font-size="16" font-weight="bold" font-family="Arial, sans-serif" fill="#cbd5e1" text-anchor="middle">RIP</text>
+</svg>
